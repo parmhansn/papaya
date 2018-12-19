@@ -1,0 +1,17 @@
+<style>
+    h2{
+        background-color: palevioletred; 
+    }
+    .details{
+        border: 3px solid black;
+    }
+</style>
+
+<h2>Details about {{ pet.name }}</h2>
+<div class='details'>
+    <p>Pet Type: {{ pet.type}}</p>
+    <p>Description:  {{ pet.description }}</p>
+    <p>Skills: {{pet.skills.skill1}} , {{pet.skills.skill2}} , {{ pet.skills.skill3 }}</p>
+    
+    <button class='btn btn-danger' (click) = "delete(pet._id)">Adopt!</button>
+</div>

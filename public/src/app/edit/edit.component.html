@@ -1,0 +1,59 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+  .errors{
+    color: red;
+  }
+  .form-group{
+    margin-left:10px;
+  }
+
+  .edit{
+    border: 3px solid black;
+  }
+
+</style>
+<form (submit)="update(pet._id)" class='edit'>
+    <div class ="form-group">
+      <label for="pet.name">Pet Name: </label>
+      <div>
+        <input type="text" name="pet.name" [(ngModel)]="pet.name" placeholder="Pet Name" required minlength='3'>
+        <p class='errors' *ngIf="errors.name"> {{errors.name.message}}</p>
+      </div>
+    </div>
+    <div class ="form-group">
+        <label for="pet.type">Pet Type: </label>
+        <div>
+          <input type="text" name="pet.type" [(ngModel)]="pet.type" placeholder="Pet Type" required minlength='3' >
+          <p class='errors' *ngIf="errors.type"> {{errors.type.message}}</p>
+        </div>
+      </div>
+
+      <div class ="form-group">
+          <label for="pet.description">Description: </label>
+          <div>
+            <input type="text" name="pet.description" [(ngModel)]="pet.description" cols=50 rows=5 placeholder="Description" required minlength='3'>
+            <p class='errors' *ngIf="errors.description"> {{errors.description.message}}</p>
+          </div>
+        </div>
+
+    <div class = "form-group">
+      <label for="pet.skills">Skills: </label>
+      <div>
+        <label for="pet.skills.skills1">Skills 1: </label>
+        <textarea name="pet.skills.skill1" [(ngModel)]="pet.skills.skill1" cols=50 rows=5 required minlength='3'></textarea>
+      </div>
+      <div>
+        <label for="pet.skills.skills2">Skills 2: </label>
+        <textarea name="pet.skills.skill2" [(ngModel)]="pet.skills.skill2" cols=50 rows=5 required minlength='3'></textarea>
+      </div>
+      <div>
+          <label for="pet.skills.skills3">Skills 3: </label>
+          <textarea name="pet.skills.skill3" [(ngModel)]="pet.skills.skill3" cols=50 rows=5 required minlength='3'></textarea>
+        </div>
+    </div>
+    <input type="submit" value="Submit" class='btn btn-success'/>
+    
+    <a [routerLink]="['/']"><button class="btn btn-primary">Cancel</button></a>
+  </form>
+
+  
